@@ -5,24 +5,24 @@
 Cette commande crée une classe de trafic et spécifie les critères de correspondance (match) pour y associer les paquets 
 Cisco.
 
-`Router(config)# class-map match-any VOICE-CLASS
-Router(config-cmap)# match dscp ef`
+`Router(config)# class-map match-any VOICE-CLASS`
+`Router(config-cmap)# match dscp ef`
 
   #### 2. policy-map
 
 Cette commande crée une politique de trafic (policy map) qui regroupe une ou plusieurs class-map et définit les actions QoS à appliquer (priorité, bande passante garantie, police, etc.).
 
-`Router(config)# policy-map QOS-POLICY
-Router(config-pmap)# class VOICE-CLASS
-Router(config-pmap-c)# priority percent 30`
+`Router(config)# policy-map QOS-POLICY`
+`Router(config-pmap)# class VOICE-CLASS`
+`Router(config-pmap-c)# priority percent 30`
 
   #### 3. service-policy
   
 Cette commande attache la policy-map à une interface en entrée ou en sortie, rendant la QoS active sur ce lien 
 Cisco.
 
-`Router(config)# interface Serial0/0/0
-Router(config-if)# service-policy output QOS-POLICY`
+`Router(config)# interface Serial0/0/0`
+`Router(config-if)# service-policy output QOS-POLICY`
 
 ## II. Méthodes de mise en œuvre d’une politique QoS
 
